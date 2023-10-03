@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "583040673878",
+    "project_id": "student-grading-efb57",
+    "storage_bucket": "student-grading-efb57.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583040673878:android:8b5f312af84a42e80733f7",
+        "android_client_info": {
+          "package_name": "com.app.student_grading_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_vHM34bYlMLnvPMsSuJ2sJ9pXfsSZRp4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
