@@ -93,6 +93,20 @@ class _UserSignupState extends State<UserSignup> {
             ),
             textAlign: TextAlign.center,
           ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                  onPressed: () {
+                    throw Exception();
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red
+                  ),
+                  child: const Text("Throw Exception")),
+            ],
+          ),
         ],
       ),
     );
