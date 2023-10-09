@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:student_grading_app/navigations/sg_navigations.dart';
+import 'package:student_grading_app/screens/student_grading_listview.dart';
 import 'package:student_grading_app/utils/sg_utils.dart';
 import 'package:student_grading_app/screens/student_grading.dart';
 import 'package:student_grading_app/screens/user_signup.dart';
@@ -103,7 +104,7 @@ class _UserSignInState extends State<UserSignIn> {
       await auth.signInWithEmailAndPassword(email: emailC.text, password: passC.text);
 
       if (auth.currentUser != null) {
-        SgNavigation().pushAndRemove(const StudentGrading());
+        SgNavigation().pushAndRemove(const StudentGradingListView());
       }
       isLoading = false;
     }
