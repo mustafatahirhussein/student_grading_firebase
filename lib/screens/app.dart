@@ -28,7 +28,7 @@ class App extends StatelessWidget {
         initialData: false,
         stream: isUserSignedIn(),
         builder: (context, sp) {
-          return sp.data! ? const StudentGradingListView() : const UserSignup();
+          return sp.data! ?  StudentGradingListView() : const UserSignup();
         },
       )
     );

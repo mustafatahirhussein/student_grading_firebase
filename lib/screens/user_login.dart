@@ -104,7 +104,7 @@ class _UserSignInState extends State<UserSignIn> {
       await auth.signInWithEmailAndPassword(email: emailC.text, password: passC.text);
 
       if (auth.currentUser != null) {
-        SgNavigation().pushAndRemove(const StudentGradingListView());
+        SgNavigation().pushAndRemove( StudentGradingListView());
       }
       isLoading = false;
     }

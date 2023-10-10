@@ -119,7 +119,7 @@ class _UserSignupState extends State<UserSignup> {
       await auth.createUserWithEmailAndPassword(email: emailC.text, password: passC.text);
 
       if (auth.currentUser != null) {
-        SgNavigation().pushAndRemove(const StudentGradingListView());
+        SgNavigation().pushAndRemove( StudentGradingListView());
       }
       isLoading = false;
     }
