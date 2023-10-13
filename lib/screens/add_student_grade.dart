@@ -4,6 +4,7 @@ import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker_plus/image_picker_plus.dart';
 import 'package:student_grading_app/utils/sg_constants.dart';
@@ -24,10 +25,11 @@ class _AddStudentGradeState extends State<AddStudentGrade> {
 
   bool isLoading = false;
 
-  final DatabaseReference _databaseReference =
-      FirebaseDatabase.instance.ref(SgConstants.reference);
+  final DatabaseReference _databaseReference = FirebaseDatabase.instance.ref(SgConstants.reference);
 
   final StreamController<File?> _fileStream = StreamController();
+
+  String imageUrl = '';
 
   @override
   Widget build(BuildContext context) {
@@ -160,6 +162,7 @@ class _AddStudentGradeState extends State<AddStudentGrade> {
       'phy': _phyC.text,
       'chem': _chemC.text,
       'math': _mathC.text,
+      'url': imageUrl,
     }).onError((error, stackTrace) {
       setState(() {
         isLoading = false;
@@ -181,11 +184,20 @@ class _AddStudentGradeState extends State<AddStudentGrade> {
   Future getImage(BuildContext context) async {
     ImagePickerPlus picker = ImagePickerPlus(context);
 
-    SelectedImagesDetails? pf =
-        await picker.pickImage(source: ImageSource.gallery);
+    SelectedImagesDetails? pf = await picker.pickImage(source: ImageSource.gallery);
 
     if (pf != null) {
       _fileStream.sink.add(File(pf.selectedFiles.first.selectedFile.path));
+
+      Reference storageRef = FirebaseStorage.instance.ref().child('images/img_${DateTime.now().microsecondsSinceEpoch}');
+      UploadTask uploadTask = storageRef.putFile(pf.selectedFiles.first.selectedFile);
+      TaskSnapshot snapshot = await uploadTask;
+
+      String url = await storageRef.getDownloadURL();
+      SgUtils().showSnackBar('Image uploaded successfully');
+      imageUrl = url;
+
+      setState(() {});
     }
   }
 }

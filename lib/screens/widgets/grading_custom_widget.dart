@@ -14,11 +14,21 @@ class GradingCustomWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Student: ${model.name!}",
-          style: TextStyle(
-            fontSize: 20,
-          ),
+
+        Row(
+          children: [
+            model.url == null ? SizedBox.shrink() : ClipRRect(child: Image.network(model.url!, fit: BoxFit.cover, height: 40, width: 40,), borderRadius: BorderRadius.circular(60),),
+
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              "Student: ${model.name!}",
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ],
         ),
         Row(
           children: [
