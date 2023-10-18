@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:student_grading_app/navigations/sg_navigations.dart';
 import 'package:student_grading_app/screens/student_grading.dart';
 import 'package:student_grading_app/screens/student_grading_listview.dart';
+import 'package:student_grading_app/screens/student_grading_listview_collection.dart';
 import 'package:student_grading_app/screens/user_signup.dart';
 
 class App extends StatelessWidget {
@@ -28,7 +29,7 @@ class App extends StatelessWidget {
         initialData: false,
         stream: isUserSignedIn(),
         builder: (context, sp) {
-          return sp.data! ?  StudentGradingListView() : const UserSignup();
+          return sp.data! ?  StudentGradingListviewCollection() : const UserSignup();
         },
       )
     );

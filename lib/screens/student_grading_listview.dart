@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:student_grading_app/models/grading_model.dart';
 import 'package:student_grading_app/navigations/sg_navigations.dart';
 import 'package:student_grading_app/screens/add_student_grade.dart';
+import 'package:student_grading_app/screens/add_student_grading_collection.dart';
 import 'package:student_grading_app/screens/change_password.dart';
 import 'package:student_grading_app/screens/user_signup.dart';
 import 'package:student_grading_app/screens/widgets/grading_custom_widget.dart';
@@ -84,7 +85,8 @@ class StudentGradingListView extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.bookmark_added_sharp),
-        onPressed: () => SgNavigation().push(const AddStudentGrade()),
+        //onPressed: () => SgNavigation().push(const AddStudentGrade()),
+        onPressed: () => SgNavigation().push(const AddStudentGradeCollection()),
       ),
     );
   }
