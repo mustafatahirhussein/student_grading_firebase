@@ -5,6 +5,8 @@ import 'package:student_grading_app/models/grading_model.dart';
 import 'package:student_grading_app/navigations/sg_navigations.dart';
 import 'package:student_grading_app/screens/add_student_grading_collection.dart';
 import 'package:student_grading_app/screens/change_password.dart';
+import 'package:student_grading_app/screens/ml_kit_image_label.dart';
+import 'package:student_grading_app/screens/ml_kit_text_rec_view.dart';
 import 'package:student_grading_app/screens/user_signup.dart';
 import 'package:student_grading_app/screens/widgets/grading_custom_widget.dart';
 import 'package:student_grading_app/utils/sg_constants.dart';
@@ -29,7 +31,7 @@ class StudentGradingListviewCollection extends StatelessWidget {
                   await FirebaseAuth.instance.signOut();
                   SgNavigation().pushAndRemove(const UserSignup());
                 },),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 InkWell(child: const Icon(Icons.password), onTap: () {
@@ -113,10 +115,30 @@ class StudentGradingListviewCollection extends StatelessWidget {
             return const SizedBox.shrink();
           },
         ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.bookmark_added_sharp),
-        //onPressed: () => SgNavigation().push(const AddStudentGrade()),
-        onPressed: () => SgNavigation().push(const AddStudentGradeCollection()),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            heroTag: 'grade',
+            child: const Icon(Icons.bookmark_added_sharp),
+            //onPressed: () => SgNavigation().push(const AddStudentGrade()),
+            onPressed: () => SgNavigation().push(const AddStudentGradeCollection()),
+          ),
+          const SizedBox(width: 10,),
+          FloatingActionButton.extended(
+            heroTag: 'ml-kit',
+            icon: const Icon(Icons.g_mobiledata_rounded),
+            label: const Text("Ml-Kit"),
+            onPressed: () => SgNavigation().push(const MlKitTextRecView()),
+          ),
+          const SizedBox(width: 10,),
+          FloatingActionButton.extended(
+            heroTag: 'image-label',
+            icon: const Icon(Icons.label),
+            label: const Text("Image Label"),
+            onPressed: () => SgNavigation().push(const MlKitImageLabelView()),
+          ),
+        ],
       ),
     );
   }
