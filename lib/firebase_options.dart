@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -49,11 +46,23 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyC4prksfSXT4rMXuU844kpk6Jq2iAkkhbg',
+    appId: '1:583040673878:web:8371581e7d13060e0733f7',
+    messagingSenderId: '583040673878',
+    projectId: 'student-grading-efb57',
+    authDomain: 'student-grading-efb57.firebaseapp.com',
+    databaseURL: 'https://student-grading-efb57-default-rtdb.firebaseio.com',
+    storageBucket: 'student-grading-efb57.appspot.com',
+    measurementId: 'G-0YGVJQGP1W',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyA_vHM34bYlMLnvPMsSuJ2sJ9pXfsSZRp4',
     appId: '1:583040673878:android:8b5f312af84a42e80733f7',
     messagingSenderId: '583040673878',
     projectId: 'student-grading-efb57',
+    databaseURL: 'https://student-grading-efb57-default-rtdb.firebaseio.com',
     storageBucket: 'student-grading-efb57.appspot.com',
   );
 
@@ -62,6 +71,7 @@ class DefaultFirebaseOptions {
     appId: '1:583040673878:ios:9fea77a9596f44ff0733f7',
     messagingSenderId: '583040673878',
     projectId: 'student-grading-efb57',
+    databaseURL: 'https://student-grading-efb57-default-rtdb.firebaseio.com',
     storageBucket: 'student-grading-efb57.appspot.com',
     iosBundleId: 'com.app.studentGradingApp',
   );

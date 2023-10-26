@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:student_grading_app/navigations/sg_navigations.dart';
+import 'package:student_grading_app/screens/remote_config_view.dart';
 import 'package:student_grading_app/screens/student_grading.dart';
 import 'package:student_grading_app/screens/student_grading_listview.dart';
 import 'package:student_grading_app/screens/student_grading_listview_collection.dart';
@@ -29,7 +30,8 @@ class App extends StatelessWidget {
         initialData: false,
         stream: isUserSignedIn(),
         builder: (context, sp) {
-          return sp.data! ?  StudentGradingListviewCollection() : const UserSignup();
+          //return sp.data! ?  StudentGradingListviewCollection() : const UserSignup();
+          return sp.data! ?  RemoteConfigView() : const UserSignup();
         },
       )
     );

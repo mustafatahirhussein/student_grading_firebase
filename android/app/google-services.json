@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "583040673878",
+    "firebase_url": "https://student-grading-efb57-default-rtdb.firebaseio.com",
     "project_id": "student-grading-efb57",
     "storage_bucket": "student-grading-efb57.appspot.com"
   },
